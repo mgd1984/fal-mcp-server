@@ -61,6 +61,11 @@ async def test_tool_listing():
         "check_queue_status",
         "get_queue_result",
         "cancel_request",
+        "list_models",
+        "search_models",
+        "get_model_schema",
+        "vectorize_image",
+        "generate_speech",
     }
 
     actual_tools = {tool.name for tool in tools}
@@ -71,7 +76,7 @@ async def test_tool_listing():
     assert (
         actual_tools == expected_tools
     ), f"Tool mismatch. Expected: {expected_tools}, Got: {actual_tools}"
-    assert len(tools) == 7, f"Expected 7 tools, got {len(tools)}"
+    assert len(tools) == 12, f"Expected 12 tools, got {len(tools)}"
 
     print("✅ Tool listing test passed")
 
@@ -224,7 +229,7 @@ async def run_all_tests():
     print("   ✅ FALClient initialization")
     print("   ✅ Content type detection")
     print("   ✅ Environment variable loading")
-    print("   ✅ Tool listing (7 tools)")
+    print("   ✅ Tool listing (12 tools)")
     print("   ✅ Tool schema validation")
     print("   ✅ Generate image tool")
     print("   ✅ Generate video tool")

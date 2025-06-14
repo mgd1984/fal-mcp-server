@@ -142,6 +142,8 @@ Transcription complete! Here's what I found:
 - `generate_image` - Create images with FLUX, Stable Diffusion, Recraft, HiDream, etc.
 - `generate_video` - Generate videos from text or images using Runway Gen3, Kling, MiniMax
 - `transcribe_audio` - Convert speech to text with Whisper
+- `generate_speech` - Generate speech from text with FLUX, Runway Gen3, etc.
+- `vectorize_image` - Vectorize images
 
 ### File & Queue Operations
 
@@ -149,6 +151,12 @@ Transcription complete! Here's what I found:
 - `check_queue_status` - Monitor long-running tasks
 - `get_queue_result` - Retrieve completed results
 - `cancel_request` - Stop queued operations
+
+### Model Management
+
+- `list_models` - List all available models
+- `search_models` - Search for models by name
+- `get_model_schema` - Get the schema for a specific model
 
 ## Configuration
 
