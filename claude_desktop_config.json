@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "fal-ai": {
+      "command": "/path/to/your/fal-mcp/venv/bin/python",
+      "args": ["/path/to/your/fal-mcp/main.py"],
+      "env": {
+        "FAL_KEY": "your-fal-api-key-here"
+      }
+    }
+  }
+}
