@@ -239,6 +239,8 @@ class FALClient:
                                 "fal-ai/imagen4/preview/fast",
                                 "fal-ai/recraft-v3",
                                 "fal-ai/hidream-i1-full",
+                                "fal-ai/imagen4/preview",
+                                "fal-ai/imagen4/preview/ultra",
                             ],
                             "default": "fal-ai/flux/schnell",
                         },
@@ -612,12 +614,6 @@ class FALClient:
                     "category": "image",
                 },
                 {
-                    "id": "fal-ai/stable-diffusion-v35-large",
-                    "name": "Stable Diffusion v3.5 Large",
-                    "description": "Large Stable Diffusion model",
-                    "category": "image",
-                },
-                {
                     "id": "fal-ai/recraft/v3/text-to-image",
                     "name": "Recraft v3",
                     "description": "Recraft text-to-image model",
@@ -627,6 +623,18 @@ class FALClient:
                     "id": "fal-ai/hidream-i1-full",
                     "name": "HiDream I1 Full",
                     "description": "HiDream image generation model",
+                    "category": "image",
+                },
+                {
+                    "id": "fal-ai/imagen4/preview",
+                    "name": "Imagen 4 Preview",
+                    "description": "Imagen 4 image generation model",
+                    "category": "image",
+                },
+                {
+                    "id": "fal-ai/imagen4/preview/ultra",
+                    "name": "Imagen 4 Ultra",
+                    "description": "Google's highest quality image generation model",
                     "category": "image",
                 },
             ],
@@ -938,6 +946,73 @@ class FALClient:
                     },
                 },
             },
+            "fal-ai/imagen4/preview": {
+                "model": model,
+                "parameters": {
+                    "prompt": {
+                        "type": "string",
+                        "required": True,
+                        "description": "Text prompt",
+                    },
+                    "image_size": {
+                        "type": "string",
+                        "default": "landscape_4_3",
+                        "enum": [
+                            "square_hd",
+                            "square",
+                            "portrait_4_3",
+                            "portrait_16_9",
+                            "landscape_4_3",
+                            "landscape_16_9",
+                        ],
+                        "description": "Size of the generated image",
+                    },
+                    "num_inference_steps": {
+                        "type": "integer",
+                        "default": 28,
+                        "min": 1,
+                        "max": 50,
+                    },
+                    "guidance_scale": {
+                        "type": "number",
+                        "default": 3.5,
+                        "description": "Guidance scale for generation",
+                    },
+                    "num_images": {
+                        "type": "integer",
+                        "default": 1,
+                        "min": 1,
+                        "max": 4,
+                    },
+                },
+            },
+            "fal-ai/imagen4/preview/ultra": {
+                "model": model,
+                "parameters": {
+                    "prompt": {
+                        "type": "string",
+                        "required": True,
+                        "description": "Text prompt",
+                    },
+                    "aspect_ratio": {
+                        "type": "string",
+                        "default": "1:1",
+                        "enum": ["1:1", "16:9", "9:16", "3:4", "4:3"],
+                        "description": "Aspect ratio of the generated image",
+                    },
+                    "num_images": {
+                        "type": "integer",
+                        "default": 1,
+                        "min": 1,
+                        "max": 4,
+                        "description": "Number of images to generate",
+                    },
+                    "seed": {
+                        "type": "integer",
+                        "description": "Random seed for reproducible results",
+                    },
+                },
+            },
         }
 
         if model in schemas:
@@ -981,9 +1056,10 @@ async def handle_list_tools() -> List[Tool]:
                             "fal-ai/flux-pro/v1.1-ultra",
                             "fal-ai/flux-pro/kontext/text-to-image",
                             "fal-ai/flux-pro/kontext/max",
-                            "fal-ai/stable-diffusion-v35-large",
                             "fal-ai/recraft/v3/text-to-image",
                             "fal-ai/hidream-i1-full",
+                            "fal-ai/imagen4/preview",
+                            "fal-ai/imagen4/preview/ultra",
                         ],
                     },
                     "image_size": {
