@@ -142,8 +142,8 @@ Transcription complete! Here's what I found:
 - `generate_image` - Create images with FLUX, Stable Diffusion, Recraft, HiDream, etc.
 - `generate_video` - Generate videos from text or images using Runway Gen3, Kling, MiniMax
 - `transcribe_audio` - Convert speech to text with Whisper
-- `generate_speech` - Generate speech from text with FLUX, Runway Gen3, etc.
-- `vectorize_image` - Vectorize images
+- `generate_speech` - Generate speech from text using MiniMax Speech 2.0 HD
+- `vectorize_image` - Vectorize images with Recraft
 
 ### File & Queue Operations
 
