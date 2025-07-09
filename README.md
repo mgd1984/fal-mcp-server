@@ -321,5 +321,3 @@ MIT License - build cool stuff with it.
 Found a bug? Want to add support for new FAL.ai models? PRs welcome!
 
 ---
-
-*Point out where I'm inhaling my own exhaust ↓*
